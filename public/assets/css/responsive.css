@@ -1,0 +1,17 @@
+@media screen and (max-width: 922px) {
+}
+
+@media screen and (max-width: 576px) {
+    .home-tagline {
+        line-height: 50px;
+        color: aqua;
+    }
+
+    .home-img {
+        width: 50%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 350px) {
+}
