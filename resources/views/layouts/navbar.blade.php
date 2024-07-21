@@ -28,7 +28,7 @@
                         </div>
                         <div class="user-img d-flex align-items-center">
                             <div class="avatar avatar-md">
-                                <img src="{{ asset('assets/images/faces/1.jpg') }}" />
+                                {{-- <img src="{{ asset('assets/images/faces/1.jpg') }}" /> --}}
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                             Hello, {{ auth()->user()->name }}!
                         </h6>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i>
                             My Profile</a>
                     </li>
@@ -51,7 +51,7 @@
                     <li>
                         <a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>
                             Wallet</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
