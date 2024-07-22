@@ -60,7 +60,7 @@ class DormitoryController extends Controller
      */
     public function create()
     {
-        $this->autorize('index-dormitory');
+        $this->authorize('index-dormitory');
 
         return view(DormitoryController::DORMITORY_VIEW["create"], [
             'title' => 'Tambah Penghuni',
