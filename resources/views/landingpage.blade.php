@@ -178,9 +178,9 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-12">
-                    <button class="facility-button">Lihat Semua..
+                    {{-- <button class="facility-button">Lihat Semua..
                         <img src="{{ asset('assets/img/arrow_fcty.png') }}" alt="" class="ms-2">
-                    </button>
+                    </button> --}}
                 </div>
             </div>
 
@@ -468,24 +468,8 @@
                     </div>
 
                     <div class="col-md-6">
-                        <div class="card-contact w-100">
-                            <form>
-                                <h2>Ada pertanyaan..?</h2>
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com">
-                                    <label for="floatingInput" class="d-flex align-items-center">Masukan email anda
-                                        disini...</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="Input"
-                                        placeholder="name@example.com">
-                                    <label for="Input" class="d-flex align-items-center">Pertanyaan
-                                        Anda..</label>
-                                </div>
-
-                                <button type="submit" class="button-contact">Send</button>
-                            </form>
+                        <div class="card-contact w-100" style="text-align: center;">
+                            <img src="{{ asset('assets/img/maps.png') }}" alt="" style="max-width: 100%; height: auto; object-fit: contain;">
                         </div>
                     </div>
                 </div>
