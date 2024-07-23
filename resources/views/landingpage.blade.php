@@ -58,13 +58,13 @@
                         <a class="nav-link scrollto" href="#facility">FACILITY</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link scrollto" href="#gallery">GALERY</a>
+                        <a class="nav-link scrollto" href="#gallery">GALLERY</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link scrollto" href="#pricing">PRICE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link scrollto" href="#">DATA</a>
+                        <a class="nav-link scrollto" href="#counts">DATA</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link scrollto" href="#contact">CONTACT</a>
@@ -85,11 +85,10 @@
             <div class="row justify-content-between">
                 <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
                     <div data-aos="zoom-out">
-                        <h1>Cari Kos Sambil Rebahan
-                            Dengan <span>Fam's Kost.</span></h1>
-                        <h2><span class="fw-bold">Cari kosan</span> yang aman, tenang, dan terjangkau? Kami punya
-                            solusinya! Kosan kami memiliki lingkungan yang aman dan
-                            tenang untuk Anda tinggali.</h2>
+                        <h1>Selamat Datang
+                            Di <span>Fam's Kost.</span></h1>
+                        <h2><span class="fw-bold">Cari kost tanpa ribet?</span> Kami punya solusinya! Dengan akses mudah, lokasi strategis, dan harga terjangkau,
+                        kosan kami siap memenuhi kebutuhan Anda.</h2>
                         <div class="text-center text-lg-start">
                             <button class="btn-get-started scrollto">For more information</button>
                             <a href="#about">
@@ -137,26 +136,25 @@
                 <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5"
                     data-aos="fade-left">
                     <h3>Tentang Fam's Kost</h3>
-                    <p>Fam's Kost adalah kos-kosan mahasiswa khusus laki-laki yang terletak pada jalan Semanggi
-                        Barat no.18 yang memiliki beberapa keunggulan, diantaranya</p>
+                    <p>Fam's Kost adalah kos-kosan yang terletak di jalan Pinang Ranti
+                        Barat no.9, Jakarta Timur yang memiliki beberapa keunggulan, diantaranya</p>
 
                     <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="icon"><i class="bx bx-fingerprint"></i></div>
-                        <h4 class="title"><a href="">Jarak ke kampus yang dekat</a></h4>
-                        <p class="description">Kos Fam's Kost memiliki lokasi yang dekat dengan kampus
-                            Politeknik Negeri Malang, kita hanya perlu berjalan kaki kurang lebih 5 menit</p>
+                        <div class="icon"><i class="bx bx-bus"></i></div>
+                        <h4 class="title"><a href="">Akses yang mudah</a></h4>
+                        <p class="description">Fam's Kost memiliki lokasi yang strategis dekat dengan pusat perbelanjaan, 
+                            akses mudah ke berbagai transportasi umum</p>
                     </div>
 
                     <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="icon"><i class="bx bx-gift"></i></div>
-                        <h4 class="title"><a href="">Harga relatif murah</a></h4>
-                        <p class="description">Harga kos Daarus Saa'dah jauh lebih murah dibandingkan dengan kos yang
-                            terdapat disekitar kampus Politeknik Negeri Malang yang biasanya mempunyai harga yang
-                            lumayan tinggi</p>
+                        <div class="icon"><i class="bx bx-money"></i></div>
+                        <h4 class="title"><a href="">Harga terjangkau</a></h4>
+                        <p class="description">Harga Fam's Kos lebih terjangkau, 
+                            dibandingkan dengan kos yang berada di sekitar Jakarta lainnya</p>
                     </div>
 
                     <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="icon"><i class="bx bx-atom"></i></div>
+                        <div class="icon"><i class="bx bx-home"></i></div>
                         <h4 class="title"><a href="">Fasilitas kos yang lumayan lengkap</a></h4>
                         <p class="description">Fam's Kost menyediakan fasilitas berupa meja, kursi, lemari dan
                             juga kasur, termasuk gratis listrik, air dan parkir kendaraan yang aman</p>
@@ -189,56 +187,51 @@
                     <div class="col-12 d-flex justify-content-start swiper-wrapper">
 
                         <div class="card-facility  position-relative swiper-slide">
-                            <img src="{{ asset('assets/img/free-room.png') }}" alt="">
+                            <img src="{{ asset('assets/img/kamar4.jpg') }}" alt="">
 
                             <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100">
                                 <div class="position-absolute top-50 start-50 translate-middle text-center w-100">
-                                    <h5>Free Space</h5>
-                                    <span>Free space within TV</span>
+                                    <h5>Kamar Suite</h5>
                                 </div>
                             </div>
                         </div>
 
                         <div class="card-facility  position-relative swiper-slide">
-                            <img src="{{ asset('assets/img/bad-room.png') }}" alt="">
+                            <img src="{{ asset('assets/img/kamar2.jpg') }}" alt="">
 
                             <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100">
                                 <div class="position-absolute top-50 start-50 translate-middle text-center w-100">
-                                    <h5>Badroom Kos</h5>
-                                    <span>Kamar minimalist Type-A2</span>
+                                    <h5>Kamar Standard</h5>
                                 </div>
                             </div>
                         </div>
 
                         <div class="card-facility  position-relative swiper-slide">
-                            <img src="{{ asset('assets/img/kicten-room.png') }}" alt="">
+                            <img src="{{ asset('assets/img/parkiran.jpg') }}" alt="">
 
                             <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100">
                                 <div class="position-absolute top-50 start-50 translate-middle text-center w-100">
-                                    <h5>Kicten</h5>
-                                    <span>Kicten for member Fam's Kost</span>
+                                    <h5>Parkiran</h5>
                                 </div>
                             </div>
                         </div>
 
                         <div class="card-facility position-relative swiper-slide">
-                            <img src="{{ asset('assets/img/outdoor-room.png') }}" alt="">
+                            <img src="{{ asset('assets/img/km1.jpg') }}" alt="">
 
                             <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100">
                                 <div class="position-absolute top-50 start-50 translate-middle text-center w-100">
-                                    <h5>Outdoor Space</h5>
-                                    <span>Outdoor space with garden</span>
+                                    <h5>Kamar Mandi</h5>
                                 </div>
                             </div>
                         </div>
 
                         <div class="card-facility position-relative swiper-slide">
-                            <img src="{{ asset('assets/img/free-room.png') }}" alt="">
+                            <img src="{{ asset('assets/img/cctv.jpg') }}" alt="">
 
                             <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100">
                                 <div class="position-absolute top-50 start-50 translate-middle text-center w-100">
-                                    <h5>Kamar Kos</h5>
-                                    <span>Kamae minimalist Type-A2</span>
+                                    <h5>CCTV</h5>
                                 </div>
                             </div>
                         </div>
@@ -256,43 +249,6 @@
         </div>
     </section>
 
-    <!-- Counts Section -->
-    <section id="counts" class="counts">
-        <div class="container">
-            <div class="row" data-aos="fade-up">
-                <div class="col-lg-3 col-md-6">
-                    <div class="count-box">
-                        <i class="bi bi-emoji-smile"></i>
-                        <span>{{ $jumlah_kamar}}</span>
-                        <p>Jumlah kamar</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-                    <div class="count-box">
-                        <i class="bi bi-journal-richtext"></i>
-                        <span>{{ $jumlah_penghuni }}</span>
-                        <p>Jumlah penghuni kos</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-                    <div class="count-box">
-                        <i class="bi bi-headset"></i>
-                        <span>{{ $total_transactions }}</span>
-                        <p>Jumlah transaksi</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-                    <div class="count-box">
-                        <i class="bi bi-people"></i>
-                        <span>{{$total_admins}}</span>
-                        <p>Jumlah admin kos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Counts Section -->
-
     <!-- Preview Section -->
     <section id="gallery" class="gallery">
         <div class="container">
@@ -304,8 +260,8 @@
             <div class="row p-0 m-0" data-aos="fade-left">
                 <div class="col-md-8 pb-3">
                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                        <a href="{{ asset('assets/img/glr-1.png') }}" class="gallery-lightbox">
-                            <img src="{{ asset('assets/img/glr-1.png') }}" alt="" class="w-100 h-100"
+                        <a href="{{ asset('assets/img/haldepan.jpg') }}" class="gallery-lightbox">
+                            <img src="{{ asset('assets/img/haldepan.jpg') }}" alt="" class="w-100 h-100"
                                 loading="lazy">
                         </a>
                     </div>
@@ -314,16 +270,16 @@
                     <div class="row">
                         <div class="col-md-12 pb-3">
                             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                                <a href="{{ asset('assets/img/glr-2.png') }}" class="gallery-lightbox">
-                                    <img src="{{ asset('assets/img/glr-2.png') }}" alt=""
+                                <a href="{{ asset('assets/img/kamar5.jpg') }}" class="gallery-lightbox">
+                                    <img src="{{ asset('assets/img/kamar5.jpg') }}" alt=""
                                         class="w-100 h-100" loading="lazy">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                                <a href="{{ asset('assets/img/glr-3.png') }}" class="gallery-lightbox">
-                                    <img src="{{ asset('assets/img/glr-3.png') }}" alt=""
+                                <a href="{{ asset('assets/img/koridor3.jpg') }}" class="gallery-lightbox">
+                                    <img src="{{ asset('assets/img/koridor3.jpg') }}" alt=""
                                         class="w-100 h-100" loading="lazy">
                                 </a>
                             </div>
@@ -337,16 +293,16 @@
                     <div class="row">
                         <div class="col-md-12 pb-3">
                             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                                <a href="{{ asset('assets/img/glr-4.png') }}" class="gallery-lightbox">
-                                    <img src="{{ asset('assets/img/glr-4.png') }}" alt=""
+                                <a href="{{ asset('assets/img/cahaya.jpg') }}" class="gallery-lightbox">
+                                    <img src="{{ asset('assets/img/cahaya.jpg') }}" alt=""
                                         class="w-100 h-100" loading="lazy">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                                <a href="{{ asset('assets/img/glr-5.png') }}" class="gallery-lightbox">
-                                    <img src="{{ asset('assets/img/glr-5.png') }}" alt=""
+                                <a href="{{ asset('assets/img/parkiran2.jpg') }}" class="gallery-lightbox">
+                                    <img src="{{ asset('assets/img/parkiran2.jpg') }}" alt=""
                                         class="w-100 h-100" loading="lazy">
                                 </a>
                             </div>
@@ -355,8 +311,8 @@
                 </div>
                 <div class="col-md-8 pb-3">
                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                        <a href="{{ asset('assets/img/glr-6.png') }}" class="gallery-lightbox">
-                            <img src="{{ asset('assets/img/glr-6.png') }}" alt="" class="w-100 h-100"
+                        <a href="{{ asset('assets/img/kamar3.jpg') }}" class="gallery-lightbox">
+                            <img src="{{ asset('assets/img/kamar3.jpg') }}" alt="" class="w-100 h-100"
                                 loading="lazy">
                         </a>
                     </div>
@@ -366,24 +322,24 @@
             <div class="row p-0 m-0" data-aos="fade-left">
                 <div class="col-md-4">
                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                        <a href="{{ asset('assets/img/glr-2.png') }}" class="gallery-lightbox">
-                            <img src="{{ asset('assets/img/glr-2.png') }}" alt="" class="w-100 h-100"
+                        <a href="{{ asset('assets/img/kasur.jpg') }}" class="gallery-lightbox">
+                            <img src="{{ asset('assets/img/kasur.jpg') }}" alt="" class="w-100 h-100"
                                 loading="lazy">
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                        <a href="{{ asset('assets/img/glr-2.png') }}" class="gallery-lightbox">
-                            <img src="{{ asset('assets/img/glr-2.png') }}" alt="" class="w-100 h-100"
+                        <a href="{{ asset('assets/img/kamar1.jpg') }}" class="gallery-lightbox">
+                            <img src="{{ asset('assets/img/kamar1.jpg') }}" alt="" class="w-100 h-100"
                                 loading="lazy">
                         </a>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                        <a href="{{ asset('assets/img/glr-2.png') }}" class="gallery-lightbox">
-                            <img src="{{ asset('assets/img/glr-2.png') }}" alt="" class="w-100 h-100"
+                        <a href="{{ asset('assets/img/kor.jpg') }}" class="gallery-lightbox">
+                            <img src="{{ asset('assets/img/kor.jpg') }}" alt="" class="w-100 h-100"
                                 loading="lazy">
                         </a>
                     </div>
@@ -405,8 +361,8 @@
             <div class="row" data-aos="fade-left">
                 <div class="col-lg-6 col-md-6">
                     <div class="box" data-aos="zoom-in" data-aos-delay="100">
-                        <h3>Bulanan</h3>
-                        <h4><sup>Rp</sup>550.000<span> / bulan</span></h4>
+                        <h3>Kamar Standard</h3>
+                        <h4><sup>Rp</sup>800.000<span> / bulan</span></h4>
                         <div class="btn-wrap">
                             <a href="{{ route('register') }}" class="btn-buy font-bold">Order now</a>
                         </div>
@@ -415,8 +371,8 @@
 
                 <div class="col-lg-6 col-md-6 mt-4 mt-md-0">
                     <div class="box-featured" data-aos="zoom-in" data-aos-delay="200">
-                        <h3>Tahunan</h3>
-                        <h4><sup>Rp</sup>6.600.000<span> / tahun</span></h4>
+                        <h3>Kamar Suite</h3>
+                        <h4><sup>Rp</sup>1.000.000<span> / bulan</span></h4>
                         <div class="btn-wrap">
                             <a href="{{ route('register') }}" class="btn-buy-featured font-bold">Order now</a>
                         </div>
@@ -428,31 +384,68 @@
     </section>
     <!-- End Pricing Section -->
 
+    <!-- Counts Section -->
+    <section id="counts" class="counts">
+        <div class="container">
+            <div class="row" data-aos="fade-up">
+                <div class="col-lg-3 col-md-6">
+                    <div class="count-box">
+                        <i class="bi bi-house"></i>
+                        <span>{{ $jumlah_kamar}}</span>
+                        <p>Jumlah kamar</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+                    <div class="count-box">
+                        <i class="bi bi-people"></i>
+                        <span>{{ $jumlah_penghuni }}</span>
+                        <p>Jumlah penghuni kos</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                    <div class="count-box">
+                        <i class="bi bi-cash"></i>
+                        <span>{{ $total_transactions }}</span>
+                        <p>Jumlah transaksi</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                    <div class="count-box">
+                        <i class="bi bi-person-circle"></i>
+                        <span>{{$total_admins}}</span>
+                        <p>Jumlah admin kos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Counts Section -->
+
     <!-- ======= Contact Section ======= -->
     <section id="contact">
         <div class="container-fluid overlay h-100">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3>Butuh Konsultasi..?
-                            Silahkan kontak kami
-                            Kami Siap Membantu</h3>
+                        <h3>Membutuhkan
+                            informasi lebih lanjut?
+                            Hubungi kami!</h3>
                         <div class="info">
                             <h6>Contact</h6>
                             <div class="mb-3 d-flex align-items-center">
                                 <div>
                                     <img src="{{ asset('assets/img/addres.png') }}" alt="">
                                 </div>
-                                <a href="#">Jl. Semanggi Barat No.18, Lowokwaru, Malang
-                                    Indonesia</a>
+                                <a href="#">Jl. Pinang Ranti Barat 
+                                    No.9, Jakarta Timur, Indonesia</a>
                             </div>
                             <div class="mb-3">
                                 <img src="{{ asset('assets/img/telpon.png') }}" alt="">
-                                <a href="#">022-6545-2041</a>
+                                <a href="#">088293918826</a>
                             </div>
                             <div class="mb-3">
                                 <img src="{{ asset('assets/img/pesan.png') }}" alt="">
-                                <a href="#">thekost@gmail.com</a>
+                                <a href="#">famskost@gmail.com</a>
                             </div>
 
                         </div>
@@ -469,8 +462,9 @@
 
                     <div class="col-md-6">
                         <div class="card-contact w-100" style="text-align: center;">
-                            <img src="{{ asset('assets/img/maps.png') }}" alt="" style="max-width: 100%; height: auto; object-fit: contain;">
-                        </div>
+                        <a href="https://maps.app.goo.gl/jdqtUozUYqFf5Sw66">
+                                <img src="{{ asset('assets/img/maps.png') }}" alt="" style="max-width: 100%; height: auto; object-fit: contain;">
+                            </a>                        </div>
                     </div>
                 </div>
             </div>
@@ -491,7 +485,7 @@
                     <a href="#about">ABOUT</a>
                     <a href="#preview">FACILITY</a>
                     <a href="#pricing">GALERY</a>
-                    <a href="#">DATA</a>
+                    <a href="#counts">DATA</a>
                     <a href="#contact">CONTACT</a>
                     <a href="#">LOGIN</a>
                 </div>

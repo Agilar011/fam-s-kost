@@ -19,7 +19,7 @@
                                 <a href="/home">Dashboard</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                <a href="#">Table</a>
+                                <a href="#">User</a>
                             </li>
                         </ol>
                     </nav>
