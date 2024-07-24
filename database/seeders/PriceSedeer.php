@@ -24,11 +24,5 @@ class PriceSedeer extends Seeder
             'price' => '650000',
             'description' => 'include almari, kasur, meja, kursi, kipas angin, AC',
         ]);
-
-        Price::create([
-            'name' => 'Kamar Gold',
-            'price' => '950000',
-            'description' => 'include almari, kasur, meja, kursi, kipas angin, AC, kamar mandi dalam',
-        ]);
     }
 }
