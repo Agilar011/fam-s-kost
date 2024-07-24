@@ -68,7 +68,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="{{ route('dormitory.index') }}" class="sidebar-link">
+                <a href="{{ route('member.index') }}" class="sidebar-link">
                     <i class="bi bi-people-fill"></i>
                     <span>Data Members</span>
                 </a>

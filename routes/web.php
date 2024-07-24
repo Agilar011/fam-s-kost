@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Models\Member;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
-use App\Http\Controllers\DormitoryController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PaymentLogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PriceController;
@@ -33,7 +34,7 @@ route::get('/', [DashboardController::class, 'landingPage'])->name('landingpage'
 Route::middleware(['auth','verified'])->group(function () {
     Route::resource('/home', DashboardController::class);
     Route::resource('/dashboard/room', RoomController::class);
-    Route::resource('/dashboard/dormitory', DormitoryController::class);
+    Route::resource('/dashboard/member', MemberController::class);
     Route::resource('/dashboard/transactions', PaymentLogController::class)->except([ 'edit', 'update']);
     Route::resource('/dashboard/users', UserController::class);
     Route::resource('/dashboard/prices', PriceController::class);
@@ -42,7 +43,7 @@ Route::middleware(['auth','verified'])->group(function () {
 });
 
 Route::get('/dashboard/dormitory/payment/{id}/year/{year}', function ($id, $year) {
-    $dataDormitory = Dormitory::where("id", $id)->first();
+    $dataDormitory = Member::where("id", $id)->first();
 
     $dataPayment = PaymentLog::where("fk_id_dormitory", $id)->get();
 

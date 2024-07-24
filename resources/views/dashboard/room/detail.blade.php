@@ -73,7 +73,7 @@
         <div class="mb-3">
             <label class="form-label">Nama Penghuni Kos</label>
             <span
-                class="form-control border-1 border-primary {{ $room->dormitory->name ?? 'text-danger' }}">{{ $room->dormitory->name ?? 'Tidak ada penghuni' }}</span>
+                class="form-control border-1 border-primary {{ $room->member->name ?? 'text-danger' }}">{{ $room->member->name ?? 'Tidak ada penghuni' }}</span>
         </div>
     </div>
 @endsection

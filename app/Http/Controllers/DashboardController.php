@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dormitory;
+use App\Models\Member;
 use App\Models\PaymentLog;
 use App\Models\Room;
 use App\Models\User;
@@ -15,7 +16,7 @@ class DashboardController extends Controller
     {
 
         return view('dashboard.home', [
-            'total_dormitories' => count(Dormitory::all()),
+            'total_dormitories' => count(Member::all()),
             'total_rooms' => count(Room::all()),
             'total_transactions' => count(PaymentLog::all()),
             'total_users' => count(User::all()),
@@ -27,7 +28,7 @@ class DashboardController extends Controller
     {
         return view('landingpage', [
             'jumlah_kamar' => count(Room::all()),
-            'jumlah_penghuni' => Room::whereNotNull('fk_id_dormitory')->count(),
+            'jumlah_penghuni' => Room::whereNotNull('fk_id_member')->count(),
             'total_transactions' => count(PaymentLog::all()),
             'total_admins' => User::where('role', 'admin')->count(),
         ]);

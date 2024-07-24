@@ -20,13 +20,13 @@
         <form action="{{ route($rooms_route['store']) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="fk_id_dormitory" class="form-label @error('fk_id_dormitory') is-invalid @enderror">Nama Penghuni
+                <label for="fk_id_member" class="form-label @error('fk_id_member') is-invalid @enderror">Nama Penghuni
                     Kos</label>
-                @if ($dormitories->count() > 0)
-                    <select class="form-select" name="fk_id_dormitory" id="fk_id_dormitory">
-                        <option value="" {{ old('fk_id_dormitory') === null ? 'selected' : '' }}>Tidak Ada Penghuni</option>
-                        @foreach ($dormitories as $dormitory)
-                            @if (old('fk_id_dormitory') == $dormitory->id)
+                @if ($members->count() > 0)
+                    <select class="form-select" name="fk_id_member" id="fk_id_member">
+                        <option value="" {{ old('fk_id_member') === null ? 'selected' : '' }}>Tidak Ada Penghuni</option>
+                        @foreach ($members as $dormitory)
+                            @if (old('fk_id_member') == $dormitory->id)
                                 <option value="{{ $dormitory->id }}" selected>{{ $dormitory->name }}</option>
                             @else
                                 <option value="{{ $dormitory->id }}">{{ $dormitory->name }}</option>
@@ -35,9 +35,9 @@
                     </select>
                 @else
                     <div class="form-control is-invalid">Tidak ada penghuni kos. Tambah data penghuni kos dahulu <a
-                            href="{{ route($dormitories_routes['index']) }}">disini</a></div>
+                            href="{{ route($members_routes['index']) }}">disini</a></div>
                 @endif
-                @error('fk_id_dormitory')
+                @error('fk_id_member')
                     <div class="invalid-feedback">
                         {!! $message !!}
                     </div>

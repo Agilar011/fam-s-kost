@@ -20,25 +20,25 @@
         <form action="{{ route($transactions_route['store']) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="fk_id_dormitory" class="form-label @error('fk_id_dormitory') is-invalid @enderror">Nama Penghuni
+                <label for="fk_id_member" class="form-label @error('fk_id_member') is-invalid @enderror">Nama Penghuni
                     Kos</label>
-                @if ($dormitories->count() > 0)
-                    <select class="form-select" name="fk_id_dormitory" id="fk_id_dormitory" required>
-                        @foreach ($dormitories as $dormitory)
-                            @if (old('fk_id_dormitory') == $dormitory->id)
-                                <option value="{{ $dormitory->id }}" selected>{{ $dormitory->name }} ( Kamar
-                                    {{ $dormitory->rooms[0]->room_number }} )</option>
+                @if ($members->count() > 0)
+                    <select class="form-select" name="fk_id_member" id="fk_id_member" required>
+                        @foreach ($members as $member)
+                            @if (old('fk_id_member') == $member->id)
+                                <option value="{{ $member->id }}" selected>{{ $member->name }} ( Kamar
+                                    {{ $member->rooms[0]->room_number }} )</option>
                             @else
-                                <option value="{{ $dormitory->id }}">{{ $dormitory->name }} ( Kamar
-                                    {{ $dormitory->rooms[0]->room_number }} )</option>
+                                <option value="{{ $member->id }}">{{ $member->name }} ( Kamar
+                                    {{ $member->rooms[0]->room_number }} )</option>
                             @endif
                         @endforeach
                     </select>
                 @else
                     <div class="form-control is-invalid">Tidak ada data. Tambah data penghuni kos dahulu <a
-                            href="{{ route($dormitories_route['index']) }}">disini</a></div>
+                            href="{{ route($members_route['index']) }}">disini</a></div>
                 @endif
-                @error('fk_id_dormitory')
+                @error('fk_id_member')
                     <div class="invalid-feedback">
                         {!! $message !!}
                     </div>
@@ -202,11 +202,11 @@
         </form>
     </div>
     <script>
-        const inputDormitory = document.getElementById("fk_id_dormitory");
-        let urlajax = "{{ route('dormitory.index') }}";
+        const inputmember = document.getElementById("fk_id_member");
+        let urlajax = "{{ route('member.index') }}";
 
-        inputDormitory.addEventListener("input", () => {
-            // console.log(inputDormitory.value)
+        inputmember.addEventListener("input", () => {
+            // console.log(inputmember.value)
             const xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
@@ -215,7 +215,7 @@
                 }
             };
 
-            xhr.open("GET", urlajax + "/get/" + inputDormitory.value, true);
+            xhr.open("GET", urlajax + "/get/" + inputmember.value, true);
 
             xhr.send();
         })

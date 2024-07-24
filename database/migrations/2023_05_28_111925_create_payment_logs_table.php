@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('proof_payment')->nullable();
             $table->unsignedBigInteger('fk_id_kind_paymentlogs')->nullable();
             // $table->foreign("fk_id_kind_paymentlogs")->references("id")->on("kind_payment_logs")->nullOnDelete();
-            $table->unsignedBigInteger('fk_id_dormitory')->nullable();
-            $table->foreign("fk_id_dormitory")->references("id")->on("dormitories")->nullOnDelete();
+            $table->unsignedBigInteger('fk_id_member')->nullable();
+            $table->foreign("fk_id_member")->references("id")->on("members")->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

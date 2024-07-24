@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dormitory;
 use App\Models\KindPaymentLogs;
+use App\Models\Member;
 use App\Models\PaymentLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -31,7 +32,7 @@ class PaymentLogController extends Controller
      */
     public function index()
     {
-        $transactions = PaymentLog::with('dormitory')->paginate(10);
+        $transactions = PaymentLog::with('member')->paginate(10);
         $months = config("app.month.language.indonesian");
 
         foreach ($transactions as $transaction) {
@@ -55,10 +56,10 @@ class PaymentLogController extends Controller
      */
     public function create()
     {
-        $dormitories = Dormitory::with(["rooms"])->get();
-        foreach ($dormitories as $indexdormitory => $dormitory) {
+        $members = Member::with(["rooms"])->get();
+        foreach ($members as $indexdormitory => $dormitory) {
             if (count($dormitory->rooms) == 0) {
-                unset($dormitories[$indexdormitory]);
+                unset($members[$indexdormitory]);
             }
         }
 
@@ -69,9 +70,9 @@ class PaymentLogController extends Controller
         return view(PaymentLogController::TRANSACTION_VIEW["create"], [
             'title' => 'Tambah Transaksi',
             'transactions_route' => PaymentLogController::TRANSACTION_ROUTE,
-            'dormitories_route' => DormitoryController::DORMITORY_ROUTE,
+            'dormitories_membersroute' => MemberController::MEMBER_ROUTE,
             // 'kindpaymentlogs_route' => KindPaymentLogsController::KINDPAYMENT_ROUTE,
-            'dormitories' => $dormitories,
+            'members' => $members,
             'kindpaymentlogs' => KindPaymentLogs::all(),
             'transactions' => PaymentLog::all(),
             'month_length' => config("app.month.length"),
@@ -92,7 +93,7 @@ class PaymentLogController extends Controller
             'month_to' => 'required',
             'year_to' => 'required',
             'fk_id_kind_paymentlogs' => 'required',
-            'fk_id_dormitory' => 'required'
+            'fk_id_member' => 'required'
         ];
 
         if ($needImage) {
@@ -101,9 +102,9 @@ class PaymentLogController extends Controller
 
         $validatedData = $request->validate($rulesData);
 
-        $dataDormitory = Dormitory::where('id', $validatedData['fk_id_dormitory'])->first();
+        $dataMember = Member::where('id', $validatedData['fk_id_member'])->first();
 
-        $day = date('d', strtotime($dataDormitory->checkin_date));
+        $day = date('d', strtotime($dataMember->checkin_date));
 
         $validatedData["from"] = $validatedData["year_from"] . "-" . $validatedData["month_from"] . "-" . $day;
         $validatedData["to"] = $validatedData["year_to"] . "-" . $validatedData["month_to"] . "-" . $day;
@@ -121,6 +122,7 @@ class PaymentLogController extends Controller
             $validatedData["proof_payment"] = $file;
         }
 
+        // dd($validatedData);
         PaymentLog::create($validatedData);
 
         return redirect()->route('transactions.index')->with('success', 'Payment Log created successfully');

@@ -17,12 +17,12 @@ class PaymentLog extends Model
         'to',
         'proof_payment',
         'fk_id_kind_paymentlogs',
-        'fk_id_dormitory'
+        'fk_id_member'
     ];
 
-    public function dormitory()
+    public function member()
     {
-        return $this->belongsTo(Dormitory::class, "fk_id_dormitory");
+        return $this->belongsTo(Member::class, "fk_id_member");
     }
 
     public function kindpayment()

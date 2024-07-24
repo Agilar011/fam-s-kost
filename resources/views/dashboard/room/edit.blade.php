@@ -21,21 +21,21 @@
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="fk_id_dormitory" class="form-label">Nama Penghuni Kamar</label>
-                <select name="fk_id_dormitory" class="form-select @error('fk_id_dormitory') is-invalid @enderror"
-                    id="fk_id_dormitory" required autofocus>
-                    @if (!$room->fk_id_dormitory)
+                <label for="fk_id_member" class="form-label">Nama Penghuni Kamar</label>
+                <select name="fk_id_member" class="form-select @error('fk_id_member') is-invalid @enderror"
+                    id="fk_id_member" required autofocus>
+                    @if (!$room->fk_id_member)
                         <option value="0" selected>Tidak Ada Penghuni</option>
                     @endif
-                    @foreach ($dormitories as $dormitory)
-                        @if (old('fk_id_dormitory', $room->fk_id_dormitory) == $dormitory->id)
-                            <option value="{{ $dormitory->id }}" selected>{{ $dormitory->name }}</option>
+                    @foreach ($members as $member)
+                        @if (old('fk_id_member', $room->fk_id_member) == $member->id)
+                            <option value="{{ $member->id }}" selected>{{ $member->name }}</option>
                         @else
-                            <option value="{{ $dormitory->id }}">{{ $dormitory->name }}</option>
+                            <option value="{{ $member->id }}">{{ $member->name }}</option>
                         @endif
                     @endforeach
                 </select>
-                @error('fk_id_dormitory')
+                @error('fk_id_member')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>

@@ -32,8 +32,8 @@ class DatabaseSeeder extends Seeder
             PriceSedeer::class,
         ]);
 
-        //dormitories seeder
-        DB::table('dormitories')->insert([
+        //members seeder
+        DB::table('members')->insert([
             [
                 "name" => "Hilmy",
                 "address" => "Malang",
@@ -111,23 +111,23 @@ class DatabaseSeeder extends Seeder
         DB::table('rooms')->insert([
             [
                 "room_number" => "1",
-                "fk_id_dormitory" => 1
+                "fk_id_member" => 1
             ],
             [
                 "room_number" => "2",
-                "fk_id_dormitory" => 2
+                "fk_id_member" => 2
             ],
             [
                 "room_number" => "3",
-                "fk_id_dormitory" => 3,
+                "fk_id_member" => 3,
             ],
             [
                 "room_number" => "4",
-                "fk_id_dormitory" => 4,
+                "fk_id_member" => 4,
             ],
             [
                 "room_number" => "5",
-                "fk_id_dormitory" => 5,
+                "fk_id_member" => 5,
             ],
             // [
             //     "room_number" => "6",

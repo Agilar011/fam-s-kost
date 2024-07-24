@@ -11,7 +11,7 @@ class Room extends Model
 
     protected $fillable = [
         'room_number',
-        'fk_id_dormitory'
+        'fk_id_member'
     ];
 
     protected $table = 'rooms';
@@ -21,8 +21,8 @@ class Room extends Model
         return $this->hasMany(RoomImage::class, "fk_id_room");
     }
 
-    public function dormitory()
+    public function member()
     {
-        return $this->belongsTo(Dormitory::class, "fk_id_dormitory" );
+        return $this->belongsTo(Member::class, "fk_id_member" );
     }
 }

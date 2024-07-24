@@ -77,7 +77,7 @@
                                                     {{ $room->room_number }}
                                                 </td>
                                                 <td class="text-bold-500">
-                                                    {!! $room->dormitory->name ?? '<b class="text-danger">-</b>' !!}
+                                                    {!! $room->member->name ?? '<b class="text-danger">-</b>' !!}
 
                                                 </td>
                                                 <td>

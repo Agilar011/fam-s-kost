@@ -21,8 +21,8 @@
         {{-- <form action="" method="POST"> --}}
         <div class="mb-3">
             <label class="form-label">Penghuni Kos | Kamar</label>
-            <span class="form-control border-1 border-primary">{{ $transaction->dormitory->name }} | Kamar
-                {{ $transaction->dormitory->rooms[0]->room_number }}</span>
+            <span class="form-control border-1 border-primary">{{ $transaction->member->name }} | Kamar
+                {{ $transaction->member->rooms[0]->room_number }}</span>
         </div>
         <div class="mb-3">
             <label class="form-label">Total Bulan Bayar</label>

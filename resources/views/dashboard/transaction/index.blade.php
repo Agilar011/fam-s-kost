@@ -78,8 +78,8 @@
                                                 <td class="text-bold-500">
                                                     {{ $transaction->date_payment }}
                                                 </td>
-                                                <td class="text-bold-500">{{ $transaction->dormitory->name }} (Kamar
-                                                    {{ $transaction->dormitory->rooms[0]->room_number }})</td>
+                                                <td class="text-bold-500">{{ $transaction->member->name }} (Kamar
+                                                    {{ $transaction->member->rooms[0]->room_number }})</td>
 
 
                                                 <td class="text-bold-500">{{ $transaction->total_month }} Month</td>

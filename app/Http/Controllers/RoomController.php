@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use App\Http\Requests\StoreRoomRequest;
 use App\Http\Requests\UpdateRoomRequest;
-use App\Models\Dormitory;
+use App\Models\Member;
 use App\Models\RoomImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -43,7 +43,7 @@ class RoomController extends Controller
 
         return view(RoomController::ROOM_VIEW["index"], [
             'title' => 'Room',
-            'rooms' => Room::with(["dormitory"])->orderByRaw("CAST(room_number AS UNSIGNED) ASC")->paginate(10),
+            'rooms' => Room::with(["member"])->orderByRaw("CAST(room_number AS UNSIGNED) ASC")->paginate(10),
             'rooms_route' => RoomController::ROOM_ROUTE
         ]);
     }
@@ -56,8 +56,8 @@ class RoomController extends Controller
         return view(RoomController::ROOM_VIEW["create"], [
             'title' => 'Tambah Kamar',
             'rooms_route' => RoomController::ROOM_ROUTE,
-            'dormitories_route' => DormitoryController::DORMITORY_ROUTE,
-            'dormitories' => Dormitory::all()
+            'members_route' => MemberController::MEMBER_ROUTE,
+            'members' => Member::all()
         ]);
     }
 
@@ -66,16 +66,18 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request->all());
         $rulesData = [
             'room_number' => 'required|integer|min:0',
-            // 'fk_id_dormitory' => 'required|unique:rooms'
+            'fk_id_member' => 'required|unique:rooms'
         ];
 
         $validator = Validator::make($request->all(), $rulesData);
 
         $validatedData = $validator->validated();
 
-        $unique_room_number = Room::with(["dormitory"])->where("room_number", $request->room_number)->first();
+        $unique_room_number = Room::with(["member"])->where("room_number", $request->room_number)->first();
         if ($unique_room_number) {
             $validator->errors()->add(
                 'room_number',
@@ -94,7 +96,9 @@ class RoomController extends Controller
         //     }
         // }
 
+        // dd($validatedData);
         $room = Room::create($validatedData);
+        // dd($room);
 
         $rulesDataImage = [
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -134,7 +138,7 @@ class RoomController extends Controller
         return view(RoomController::ROOM_VIEW["edit"], [
             'title' => "Edit Kamar $room->name",
             'room' => $room,
-            'dormitories' => Dormitory::all(),
+            'members' => Member::all(),
             'rooms_route' => RoomController::ROOM_ROUTE,
             'room_images' => RoomImage::where("fk_id_room", $room->id)->get(),
         ]);
@@ -145,15 +149,16 @@ class RoomController extends Controller
      */
     public function update(Request $request, Room $room)
     {
+        // dd($request->all());
         $rulesData = [
-            'fk_id_dormitory' => 'required|unique:rooms,fk_id_dormitory,' . $room->id,
+            'fk_id_member' => 'required|unique:rooms,fk_id_member,' . $room->id,
             'room_number' => 'required|integer|min:0|unique:rooms,room_number,' . $room->id,
         ];
 
         $validatedData = $request->validate($rulesData);
 
-        if ($validatedData["fk_id_dormitory"] == 0) {
-            $validatedData["fk_id_dormitory"] = null;
+        if ($validatedData["fk_id_member"] == 0) {
+            $validatedData["fk_id_member"] = null;
         }
 
         if ($request->file('image')) {

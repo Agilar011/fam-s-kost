@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('room_number')->unique();
-            $table->unsignedBigInteger('fk_id_dormitory')->nullable();
+            $table->unsignedBigInteger('fk_id_member')->nullable();
             // $table->foreign("fk_id_dormitory")->references("id")->on("dormitories")->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
