@@ -57,8 +57,8 @@ class PaymentLogController extends Controller
     public function create()
     {
         $members = Member::with(["rooms"])->get();
-        foreach ($members as $indexdormitory => $dormitory) {
-            if (count($dormitory->rooms) == 0) {
+        foreach ($members as $indexdormitory => $members) {
+            if (count($members->rooms) == 0) {
                 unset($members[$indexdormitory]);
             }
         }
@@ -70,8 +70,8 @@ class PaymentLogController extends Controller
         return view(PaymentLogController::TRANSACTION_VIEW["create"], [
             'title' => 'Tambah Transaksi',
             'transactions_route' => PaymentLogController::TRANSACTION_ROUTE,
-            'dormitories_membersroute' => MemberController::MEMBER_ROUTE,
-            // 'kindpaymentlogs_route' => KindPaymentLogsController::KINDPAYMENT_ROUTE,
+            'members_route' => MemberController::MEMBER_ROUTE,
+            'kindpaymentlogs_route' => KindPaymentLogsController::KINDPAYMENT_ROUTE,
             'members' => $members,
             'kindpaymentlogs' => KindPaymentLogs::all(),
             'transactions' => PaymentLog::all(),
