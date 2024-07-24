@@ -27,7 +27,7 @@ class DashboardController extends Controller
     {
         return view('landingpage', [
             'jumlah_kamar' => count(Room::all()),
-            'jumlah_penghuni' => Room::whereNotNull('fk_id_dormitory')->count(),
+            'jumlah_penghuni' => Room::whereNotNull('fk_id_member')->count(),
             'total_transactions' => count(PaymentLog::all()),
             'total_admins' => User::where('role', 'admin')->count(),
         ]);
