@@ -87,8 +87,9 @@
                     <div data-aos="zoom-out">
                         <h1>Selamat Datang
                             Di <span>Fam's Kost.</span></h1>
-                        <h2><span class="fw-bold">Cari kost tanpa ribet?</span> Kami punya solusinya! Dengan akses mudah, lokasi strategis, dan harga terjangkau,
-                        kosan kami siap memenuhi kebutuhan Anda.</h2>
+                        <h2><span class="fw-bold">Cari kost tanpa ribet?</span> Kami punya solusinya! Dengan akses
+                            mudah, lokasi strategis, dan harga terjangkau,
+                            kosan kami siap memenuhi kebutuhan Anda.</h2>
                         <div class="text-center text-lg-start">
                             <button class="btn-get-started scrollto">For more information</button>
                             <a href="#about">
@@ -142,14 +143,15 @@
                     <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon"><i class="bx bx-bus"></i></div>
                         <h4 class="title"><a href="">Akses yang mudah</a></h4>
-                        <p class="description">Fam's Kost memiliki lokasi yang strategis dekat dengan pusat perbelanjaan, 
+                        <p class="description">Fam's Kost memiliki lokasi yang strategis dekat dengan pusat
+                            perbelanjaan,
                             akses mudah ke berbagai transportasi umum</p>
                     </div>
 
                     <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
                         <div class="icon"><i class="bx bx-money"></i></div>
                         <h4 class="title"><a href="">Harga terjangkau</a></h4>
-                        <p class="description">Harga Fam's Kos lebih terjangkau, 
+                        <p class="description">Harga Fam's Kos lebih terjangkau,
                             dibandingkan dengan kos yang berada di sekitar Jakarta lainnya</p>
                     </div>
 
@@ -391,7 +393,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="count-box">
                         <i class="bi bi-house"></i>
-                        <span>{{ $jumlah_kamar}}</span>
+                        <span>{{ $jumlah_kamar }}</span>
                         <p>Jumlah kamar</p>
                     </div>
                 </div>
@@ -412,7 +414,7 @@
                 <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                     <div class="count-box">
                         <i class="bi bi-person-circle"></i>
-                        <span>{{$total_admins}}</span>
+                        <span>{{ $total_admins }}</span>
                         <p>Jumlah admin kos</p>
                     </div>
                 </div>
@@ -436,7 +438,7 @@
                                 <div>
                                     <img src="{{ asset('assets/img/addres.png') }}" alt="">
                                 </div>
-                                <a href="#">Jl. Pinang Ranti Barat 
+                                <a href="#">Jl. Pinang Ranti Barat
                                     No.9, Jakarta Timur, Indonesia</a>
                             </div>
                             <div class="mb-3">
@@ -462,9 +464,11 @@
 
                     <div class="col-md-6">
                         <div class="card-contact w-100" style="text-align: center;">
-                        <a href="https://maps.app.goo.gl/jdqtUozUYqFf5Sw66">
-                                <img src="{{ asset('assets/img/map.png') }}" alt="" style="max-width: 100%; height: auto; object-fit: contain;">
-                            </a>                        </div>
+                            <a href="https://maps.app.goo.gl/jdqtUozUYqFf5Sw66">
+                                <img src="{{ asset('assets/img/map.png') }}" alt=""
+                                    style="max-width: 100%; height: auto; object-fit: contain;">
+                                </a>
+                        </div>
                     </div>
                 </div>
             </div>

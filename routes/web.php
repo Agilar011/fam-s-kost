@@ -31,16 +31,29 @@ route::get('/', [DashboardController::class, 'landingPage'])->name('landingpage'
 
 // route('/', [DashboardController::class, 'landingPage'])->name('landingpage');
 
-Route::middleware(['auth','verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::resource('/home', DashboardController::class);
+    Route::resource('/dashboard/member', DashboardController::class);
     Route::resource('/dashboard/room', RoomController::class);
-    Route::resource('/dashboard/member', MemberController::class);
     Route::resource('/dashboard/transactions', PaymentLogController::class)->except([ 'edit', 'update']);
     Route::resource('/dashboard/users', UserController::class);
     Route::resource('/dashboard/prices', PriceController::class);
     Route::resource('/dashboard/bill', BillController::class);
-    Route::post('/midtrans-callback', [PaymentLogController::class, 'callback']);
+    Route::post('/midtrans-callback', [BillController::class, 'callback'])->name('midtrans.callback');
 });
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+
+// Route::get('/success/create',[PaymentLogController::class, 'createTransaction'])->name('success.create');
+// Route::post('success/create/transaction',[PaymentLogController::class, 'storeTransaction'])->name('success.store');
+
+Route::get("/success/create", function(){
+    return view("dashboard.afterSuccess.create");
+    })->name("success.create");
+
+    Route::post('/store/member', [DashboardController::class, 'storeMember'])->name('storeMember');
+
 
 Route::get('/dashboard/dormitory/payment/{id}/year/{year}', function ($id, $year) {
     $dataDormitory = Member::where("id", $id)->first();

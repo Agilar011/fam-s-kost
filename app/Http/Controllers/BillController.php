@@ -95,11 +95,9 @@ class BillController extends Controller
         // Set 3DS transaction for credit card to true
         \Midtrans\Config::$is3ds = true;
 
-        $orderId = 'BILL-' . time(); // Example of unique order ID
-
         $params = array(
             'transaction_details' => array(
-                'order_id' => $orderId,
+                'order_id' => $bill->id,
                 'gross_amount' => $bill->total_price,
             ),
             'customer_details' => array(

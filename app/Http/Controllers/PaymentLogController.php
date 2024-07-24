@@ -18,6 +18,8 @@ class PaymentLogController extends Controller
         "create" => "transactions.create",
         "show" => "transactions.show",
         "delete" => "transactions.destroy",
+        // "store" => "transactions.store",
+        // "createTransaction" => "success.create",
 
     ];
 
@@ -25,6 +27,7 @@ class PaymentLogController extends Controller
         "index" => "dashboard.transaction.index",
         "create" => "dashboard.transaction.create",
         "detail" => "dashboard.transaction.detail",
+        "createTransaction" => "dashboard.afterSuccess.createTransaction",
 
     ];
     /**
@@ -57,11 +60,12 @@ class PaymentLogController extends Controller
     public function create()
     {
         $members = Member::with(["rooms"])->get();
-        foreach ($members as $indexdormitory => $members) {
-            if (count($members->rooms) == 0) {
+        foreach ($members as $indexdormitory => $member) {
+            if (count($member->rooms) == 0) {
                 unset($members[$indexdormitory]);
             }
         }
+
 
         // <div class="alert alert-info" role="alert">
         //     A simple info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
@@ -176,5 +180,83 @@ class PaymentLogController extends Controller
         }
     }
 
+    public function createTransaction()
+    {
+        $members = Member::with(["rooms"])->get();
+        foreach ($members as $indexdormitory => $member) {
+            if (count($member->rooms) == 0) {
+                unset($members[$indexdormitory]);
+            }
+        }
 
+        // $dormitories = Dormitory::with(["rooms"])->get();
+        // foreach ($dormitories as $indexdormitory => $dormitory) {
+        //     if (count($dormitory->rooms) == 0) {
+        //         unset($dormitories[$indexdormitory]);
+        //     }
+        // }
+
+        // <div class="alert alert-info" role="alert">
+        //     A simple info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        // </div>
+
+        return view(PaymentLogController::TRANSACTION_VIEW["createTransaction"], [
+            'title' => 'Tambah Transaksi',
+            'transactions_route' => PaymentLogController::TRANSACTION_ROUTE,
+            'members_route' => MemberController::MEMBER_ROUTE,
+            'kindpaymentlogs_route' => KindPaymentLogsController::KINDPAYMENT_ROUTE,
+            'members' => $members,
+            'kindpaymentlogs' => KindPaymentLogs::all(),
+            'transactions' => PaymentLog::all(),
+            'month_length' => config("app.month.length"),
+            'months' => config("app.month.language.indonesian"),
+        ]);
+    }
+
+    public function storeTransaction(Request $request)
+    {
+        $needImage = KindPaymentLogs::where("id", $request->fk_id_kind_paymentlogs)->first()->need_image;
+        $rulesData = [
+            'total_month' => 'required|integer|min:1',
+            'month_from' => 'required',
+            'year_from' => 'required',
+            'month_to' => 'required',
+            'year_to' => 'required',
+            'fk_id_kind_paymentlogs' => 'required',
+            'fk_id_member' => 'required'
+        ];
+
+        if ($needImage) {
+            $rulesData["proof_payment"] = "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048";
+        }
+
+        $validatedData = $request->validate($rulesData);
+
+        $dataMember = Member::where('id', $validatedData['fk_id_member'])->first();
+
+        $day = date('d', strtotime($dataMember->checkin_date));
+
+        $validatedData["from"] = $validatedData["year_from"] . "-" . $validatedData["month_from"] . "-" . $day;
+        $validatedData["to"] = $validatedData["year_to"] . "-" . $validatedData["month_to"] . "-" . $day;
+        unset($validatedData["month_from"], $validatedData["year_from"], $validatedData["month_to"], $validatedData["year_to"]);
+
+        // return dd($validatedData);
+
+        // $tahun = date('Y');
+        // $bulan = date('m');
+        // $tanggal = cal_days_in_month(CAL_GREGORIAN, $bulan, $tahun);
+        // return $tanggal;
+
+        if ($needImage) {
+            $file = $request->file('proof_payment')->store('proof-payment', 'public');
+            $validatedData["proof_payment"] = $file;
+        }
+
+        // dd($validatedData);
+        PaymentLog::create($validatedData);
+
+        return redirect()->route('transactions.index')->with('success', 'Payment Log created successfully');
+
+
+}
 }

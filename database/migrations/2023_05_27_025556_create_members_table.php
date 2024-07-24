@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone_number', 14);
             $table->string("image")->nullable();
+            $table->string("image2")->nullable();
             $table->date('checkin_date')->nullable();
             $table->date('checkout_date')->nullable();
             $table->timestamps();

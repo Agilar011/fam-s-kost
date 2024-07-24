@@ -33,6 +33,7 @@ class MemberController extends Controller
         "create" => "dashboard.member.create",
         "detail" => "dashboard.member.detail",
         "edit" => "dashboard.member.edit",
+        "createMember" => "dashboard.afterSuccess.create",
 
     ];
 
@@ -168,5 +169,58 @@ class MemberController extends Controller
     {
         Member::with(["rooms"])->find($member->id)->delete();
         return redirect()->route(MemberController::MEMBER_ROUTE["index"])->with('success', 'Data Penghuni berhasil dihapus');
+    }
+
+    public function getCreate()
+    {
+        return view(MemberController::MEMBER_VIEW["create"], [
+            'title' => 'Tambah Penghuni',
+            'member_route' => MemberController::MEMBER_ROUTE
+        ]);
+    }
+
+    public function storeMember(Request $request)
+    {
+        // dd($request->all());
+        $rulesData = [
+            'name' => 'required|unique:members',
+            'address' => 'required',
+            'phone_number' => 'required|unique:members|numeric|digits_between:11,13',
+            'checkin_date' => 'required|date',
+
+        ];
+
+        if ($request->file("image")) {
+            $rulesData["image"] = "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048";
+        }
+        if ($request->file("image2")) {
+            $rulesData["image2"] = "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048";
+        }
+
+        $validatedData = $request->validate($rulesData);
+
+
+        if ($validatedData["image"]) {
+            $file = $request->file('image')->store('dormitory-images', 'public');
+            $validatedData["image"] = $file;
+        }
+
+        if ($validatedData["image2"]) {
+            $file2 = $request->file('image2')->store('dormitory-images', 'public');
+            $validatedData["image2"] = $file2;
+        }
+
+        Member::create($validatedData);
+        if (auth()->user()->role == 'user') {
+            return redirect()->route('dashboard.index')->with('success', 'Data Penghuni berhasil ditambahkan');
+            # code...
+        } else {
+            # code...
+            return redirect()->route(MemberController::MEMBER_ROUTE["index"])->with('success', 'Data Penghuni berhasil ditambahkan');
+
+        }
+
+
+        // return redirect()->route(MemberController::MEMBER_ROUTE["index"])->with('success', 'Data Penghuni berhasil ditambahkan');
     }
 }
