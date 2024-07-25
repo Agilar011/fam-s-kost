@@ -34,7 +34,7 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                    placeholder="Nama">
+                    placeholder="Nama" required>
                 @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -66,7 +66,7 @@
             <div class="mb-3">
                 <label for="year" class="form-label">Year</label>
                 <input type="text" class="form-control @error('year') is-invalid @enderror" id="year" name="year"
-                    placeholder="Tahun" min="1900" max="2099">
+                    placeholder="Tahun" min="1900" max="2099" required>
                 @error('year')
                     <div class="invalid-feedback">
                         {{ $message }}

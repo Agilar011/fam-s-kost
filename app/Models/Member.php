@@ -15,6 +15,7 @@ class Member extends Model
         'address',
         'phone_number',
         'image',
+        'image2',
         'checkin_date',
         'checkout_date'
     ];
