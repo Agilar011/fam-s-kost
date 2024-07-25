@@ -33,7 +33,7 @@ route::get('/', [DashboardController::class, 'landingPage'])->name('landingpage'
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('/home', DashboardController::class);
-    Route::resource('/dashboard/member', DashboardController::class);
+    Route::resource('/dashboard/member', MemberController::class);
     Route::resource('/dashboard/room', RoomController::class);
     Route::resource('/dashboard/transactions', PaymentLogController::class)->except([ 'edit', 'update']);
     Route::resource('/dashboard/users', UserController::class);
