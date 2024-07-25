@@ -464,11 +464,9 @@
 
                     <div class="col-md-6">
                         <div class="card-contact w-100" style="text-align: center;">
-                            <a href="https://maps.app.goo.gl/jdqtUozUYqFf5Sw66">
-                                <img src="{{ asset('assets/img/map.png') }}" alt=""
-                                    style="max-width: 100%; height: auto; object-fit: contain;">
-                                </a>
-                        </div>
+                        <a href="https://maps.app.goo.gl/jdqtUozUYqFf5Sw66">
+                                <img src="{{ asset('assets/img/map.png') }}" alt="" style="max-width: 100%; height: auto; object-fit: contain;">
+                            </a>                        </div>
                     </div>
                 </div>
             </div>
