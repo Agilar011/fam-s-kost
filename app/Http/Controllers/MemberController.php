@@ -101,18 +101,18 @@ class MemberController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Member $dormitory)
+    public function show(Member $member)
     {
         $date_start_checkin = null;
-        if ($dormitory->checkin_date) {
-            $date_start_checkin = getdate(strtotime($dormitory->checkin_date));
+        if ($member->checkin_date) {
+            $date_start_checkin = getdate(strtotime($member->checkin_date));
         }
         return view(MemberController::MEMBER_VIEW["detail"], [
-            'title' => "Detail Penghuni $dormitory->name",
-            'dormitory' => $dormitory,
+            'title' => "Detail Penghuni $member->name",
+            'member' => $member,
             'year_checkin'=> $date_start_checkin["year"],
             'max_year' => config("app.max_year"),
-            'dormitory_route' => MemberController::MEMBER_ROUTE,
+            'member_route' => MemberController::MEMBER_ROUTE,
         ]);
     }
 

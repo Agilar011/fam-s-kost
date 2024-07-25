@@ -6,8 +6,8 @@
     {{-- start logo and back --}}
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ route($dormitory_route['index']) }}"><i class="bi bi-chevron-left"></i></a>
-            <a class="navbar-brand ms-4" href="{{ route($dormitory_route['index']) }}">
+            <a href="{{ route($member_route['index']) }}"><i class="bi bi-chevron-left"></i></a>
+            <a class="navbar-brand ms-4" href="{{ route($member_route['index']) }}">
                 {{-- <img src="{{ asset('assets/img/logo-kos.svg') }}"> --}}
             </a>
         </div>
@@ -17,10 +17,23 @@
         <h4 class="card-title">Detail Member</h4>
     </div>
     <div class="card-body">
-        @if ($dormitory->image)
+        @if ($member->image)
+        <label for="">Identitas Member</label>
             <div class="mb-3 p-0 col-lg-8 ratio ratio-16x9">
-                <img class="mx-sm-auto-custom" src="{{ asset('storage/' . $dormitory->image) }}" alt="Gambar"
-                    height="350px" style="display: block; aspect-ratio: 16/9; object-fit:cover; border:solid;" />
+                <img class="mx-sm-auto-custom" src="{{ asset('storage/' . $member->image) }}" alt="Gambar"
+                    height="350px" style="display: block; aspect-ratio: 16/9; object-fit:contain; border:solid;" />
+            </div>
+        @else
+            <div class="col-12 mb-3 p-0">
+                <span class="form-control border-1 border-danger text-danger">Tidak ada gambar profile</span>
+            </div>
+        @endif
+
+        @if ($member->image2)
+        <label for="">Bukti Pembayaran Member</label>
+            <div class="mb-3 p-0 col-lg-8 ratio ratio-16x9">
+                <img class="mx-sm-auto-custom" src="{{ asset('storage/' . $member->image2) }}" alt="Gambar"
+                    height="350px" style="display: block; aspect-ratio: 16/9; object-fit:contain; border:solid;" />
             </div>
         @else
             <div class="col-12 mb-3 p-0">
@@ -30,27 +43,27 @@
 
         <div class="mb-3">
             <label for="number" class="form-label">Name</label>
-            <span class="form-control border-1 border-primary">{{ $dormitory->name }}</span>
+            <span class="form-control border-1 border-primary">{{ $member->name }}</span>
 
         </div>
         <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
-            <span class="form-control border-1 border-primary">{{ $dormitory->phone_number }}</span>
+            <span class="form-control border-1 border-primary">{{ $member->phone_number }}</span>
 
         </div>
         <div class="mb-3">
             <label for="address" class="form-label">Tanggal Masuk Kos</label>
-            <span class="form-control border-1 border-primary">{{ $dormitory->checkin_date ?? '-' }}</span>
+            <span class="form-control border-1 border-primary">{{ $member->checkin_date ?? '-' }}</span>
 
         </div>
         <div class="mb-3">
             <label for="address" class="form-label">Tanggal Keluar Kos</label>
-            <span class="form-control border-1 border-primary">{{ $dormitory->checkout_date ?? '-' }}</span>
+            <span class="form-control border-1 border-primary">{{ $member->checkout_date ?? '-' }}</span>
 
         </div>
         <div class="mb-3">
             <label for="address" class="form-label">Address</label>
-            <span class="form-control border-1 border-primary">{{ $dormitory->address }}</span>
+            <span class="form-control border-1 border-primary">{{ $member->address }}</span>
         </div>
         {{-- <div class="row mb-3 p-0 flex-sm-column">
             <div class="col">
