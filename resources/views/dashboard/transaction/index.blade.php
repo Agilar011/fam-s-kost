@@ -94,15 +94,21 @@
                                                         class="btn icon btn-primary" title="Detail"><i
                                                             class="bi bi-eye"></i></a>
 
-                                                    <form
-                                                        action="{{ route($transactions_route['delete'], $transaction->id) }}"
-                                                        class="d-inline" method="post">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button onclick="return confirm('Konfirmasi hapus data ?')"
-                                                            class="btn icon btn-danger" title="Delete"><i
-                                                                class="bi bi-trash"></i></button>
-                                                    </form>
+                                                    @auth
+                                                        @if (auth()->user()->role == 'admin' || auth()->user()->role == 'superadmin')
+                                                            <!-- Konten yang hanya dapat diakses oleh admin atau superadmin -->
+                                                            <form
+                                                                action="{{ route($transactions_route['delete'], $transaction->id) }}"
+                                                                class="d-inline" method="post">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button onclick="return confirm('Konfirmasi hapus data ?')"
+                                                                    class="btn icon btn-danger" title="Delete"><i
+                                                                        class="bi bi-trash"></i></button>
+                                                            </form>
+                                                        @endif
+                                                    @endauth
+
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -23,7 +23,7 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                    placeholder="Room Number" value="{{ old('name') }}">
+                    placeholder="Member Name" value="{{ old('name') }}">
                 @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -33,7 +33,7 @@
             <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
                 <input type="text" class="form-control @error('address') is-invalid @enderror" id="address"
-                    name="address" placeholder="Member Name" value="{{ old('address') }}">
+                    name="address" placeholder="Member Address" value="{{ old('address') }}">
                 @error('address')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -123,7 +123,7 @@
                 });
             </script>
 
-            {{-- <a href="{{ route($member_route["index"]) }}" class="btn btn-secondary">Back</a> --}}
+<a href="{{ route('dashboard.index') }}" class="btn btn-secondary">Back</a>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
