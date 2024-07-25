@@ -14,15 +14,15 @@ class PriceSedeer extends Seeder
     public function run(): void
     {
         Price::create([
-            'name' => 'Kamar Bronze',
-            'price' => '550000',
-            'description' => 'include almari, kasur, meja, kursi, kipas angin',
+            'name' => 'Kamar Standard',
+            'price' => '800000',
+            'description' => 'Kamar Mandi Luar, (include lemari, kasur, meja, kursi, kipas angin, wifi)',
         ]);
 
         Price::create([
-            'name' => 'Kamar Silver',
-            'price' => '650000',
-            'description' => 'include almari, kasur, meja, kursi, kipas angin, AC',
+            'name' => 'Kamar Suite',
+            'price' => '1000000',
+            'description' => 'Kamar mandi dalam, kamar lebih luas (include lemari, kasur, meja, kursi, kipas angin, wifi',
         ]);
     }
 }
