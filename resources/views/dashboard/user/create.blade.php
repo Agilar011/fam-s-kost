@@ -15,7 +15,7 @@
     {{-- endt logo and back --}}
 
     <div class="card-header">
-        <h4 class="card-title">Form Members</h4>
+        <h4 class="card-title">Form Penyewa</h4>
     </div>
     <div class="card-body">
         <form action="{{ route($users_route['store']) }}" method="post" enctype="multipart/form-data">

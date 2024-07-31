@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Members')
+@section('title', 'Penyewa')
 
 @section('content')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Data Members</h3>
+                    <h3>Data Penyewa</h3>
                     <p class="text-subtitle text-muted">
                         Who does not love Fam's Kost
                     </p>
@@ -19,7 +19,7 @@
                                 <a href="/home">Dashboard</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                <a href="#">Member</a>
+                                <a href="#">Penyewa</a>
                             </li>
                         </ol>
                     </nav>

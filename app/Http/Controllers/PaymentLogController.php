@@ -35,23 +35,29 @@ class PaymentLogController extends Controller
      */
     public function index()
     {
-        $transactions = PaymentLog::with('member')->paginate(10);
-        $months = config("app.month.language.indonesian");
+        if (auth()->user()->role == "admin") {
+            $transactions = PaymentLog::with('member')->paginate(10);
+            $months = config("app.month.language.indonesian");
 
-        foreach ($transactions as $transaction) {
-            $date_from = $months[((int)date("m", strtotime($transaction->from)))-1]["name"] . " " .  date("Y", strtotime($transaction->from));
-            $date_to = $months[((int)date("m", strtotime($transaction->to)))-1]["name"] . " " .  date("Y", strtotime($transaction->to));
-            $date_payment = date("d", strtotime($transaction->created_at)) . " " . $months[((int)date("m", strtotime($transaction->created_at)))-1]["name"] . " " .  date("Y", strtotime($transaction->created_at));
-            $transaction["from"] = $date_from;
-            $transaction["to"] = $date_to;
-            $transaction["date_payment"] = $date_payment;
+            foreach ($transactions as $transaction) {
+                $date_from = $months[((int) date("m", strtotime($transaction->from))) - 1]["name"] . " " . date("Y", strtotime($transaction->from));
+                $date_to = $months[((int) date("m", strtotime($transaction->to))) - 1]["name"] . " " . date("Y", strtotime($transaction->to));
+                $date_payment = date("d", strtotime($transaction->created_at)) . " " . $months[((int) date("m", strtotime($transaction->created_at))) - 1]["name"] . " " . date("Y", strtotime($transaction->created_at));
+                $transaction["from"] = $date_from;
+                $transaction["to"] = $date_to;
+                $transaction["date_payment"] = $date_payment;
+            }
+
+            return view(PaymentLogController::TRANSACTION_VIEW["index"], [
+                'title' => 'Data Transaksi',
+                'transactions_route' => PaymentLogController::TRANSACTION_ROUTE,
+                'transactions' => $transactions,
+            ]);
+        } else {
+            abort(403, 'You do not have permission to access this page');
         }
 
-        return view(PaymentLogController::TRANSACTION_VIEW["index"], [
-            'title' => 'Data Transaksi',
-            'transactions_route' => PaymentLogController::TRANSACTION_ROUTE,
-            'transactions' => $transactions,
-        ]);
+
     }
 
     /**
@@ -258,5 +264,5 @@ class PaymentLogController extends Controller
         return redirect()->route('transactions.index')->with('success', 'Payment Log created successfully');
 
 
-}
+    }
 }

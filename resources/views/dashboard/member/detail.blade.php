@@ -1,6 +1,6 @@
 @extends('layouts.custom')
 
-@section('title', 'Form Member')
+@section('title', 'Form Penyewa')
 
 @section('content')
     {{-- start logo and back --}}
@@ -14,7 +14,7 @@
     </nav>
     {{-- endt logo and back --}}
     <div class="card-header">
-        <h4 class="card-title">Detail Member</h4>
+        <h4 class="card-title">Detail Penyewa</h4>
     </div>
     <div class="card-body">
         @if ($member->image)
