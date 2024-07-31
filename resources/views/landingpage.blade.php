@@ -438,8 +438,7 @@
                                 <div>
                                     <img src="{{ asset('assets/img/addres.png') }}" alt="">
                                 </div>
-                                <a href="#">Jl. Pinang Ranti Barat
-                                    No.9, Jakarta Timur, Indonesia</a>
+                                <a href="#">Jl. Pinang Ranti I, RT.15/RW.1, Pinang Ranti, Kec. Makasar, Kota Jakarta Timur, Indonesia</a>
                             </div>
                             <div class="mb-3">
                                 <img src="{{ asset('assets/img/telpon.png') }}" alt="">
@@ -463,10 +462,12 @@
                     </div>
 
                     <div class="col-md-6">
-                        <div class="card-contact w-100" style="text-align: center;">
-                        <a href="https://maps.app.goo.gl/jdqtUozUYqFf5Sw66">
-                                <img src="{{ asset('assets/img/map.png') }}" alt="" style="max-width: 100%; height: auto; object-fit: contain;">
-                            </a>                        </div>
+                        <div class="" style="text-align: center;">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.8127371971427!2d106.87760827475117!3d-6.288328093700665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3c12f843a6b%3A0xe66bc9e0265690af!2sKost%20ibu%20dewi!5e0!3m2!1sid!2sid!4v1722415234671!5m2!1sid!2sid"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>

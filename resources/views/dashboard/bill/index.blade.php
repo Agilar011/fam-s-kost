@@ -33,7 +33,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">
-                                Table Data Members
+                                Table Data Penyewa
                             </h4>
                         </div>
 

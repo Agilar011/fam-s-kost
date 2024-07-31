@@ -15,7 +15,7 @@
     {{-- endt logo and back --}}
 
     <div class="card-header">
-        <h4 class="card-title">Form Bills</h4>
+        <h4 class="card-title">Form Penyewa</h4>
     </div>
     <div class="card-body">
         @if ($errors->any())
