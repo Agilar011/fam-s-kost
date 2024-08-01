@@ -35,7 +35,7 @@ class PaymentLogController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->role == "admin") {
+        if (auth()->user()->role == "admin" || auth()->user()->role == 'superadmin') {
             $transactions = PaymentLog::with('member')->paginate(10);
             $months = config("app.month.language.indonesian");
 
